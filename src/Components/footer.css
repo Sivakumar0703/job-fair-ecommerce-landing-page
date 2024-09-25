@@ -1,0 +1,15 @@
+
+#footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: black;
+}
+
+@media (max-width: 576px) {
+    #footer{
+       display: block;
+       /* width: 100vw; */
+    }
+}

@@ -1,0 +1,21 @@
+
+#category-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    height:8vh;
+    background-color: cadetblue;
+    overflow-y: scroll;
+}
+
+.categories{
+    cursor: pointer;
+    flex-grow: 1;
+    height:100%;
+    align-content: center;
+    padding:0 5px;
+}
+
+.categories:hover{
+    background-color: chartreuse;
+}

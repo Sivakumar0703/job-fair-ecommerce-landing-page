@@ -1,0 +1,64 @@
+
+#header{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    height:10vh;
+    background-color: black;
+}
+
+#menu{
+    display: none;
+}
+
+#logo{
+    height:50px;
+    width:50px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+#search input{
+    border-radius: 5px;
+    padding: 5px;
+    width:60%;
+}
+
+#search{
+    margin:5px;
+    flex-grow: 1;
+}
+
+
+
+.option{
+    cursor: pointer;
+}
+
+.collapse{
+    padding: 10px;
+    background-color: chartreuse;
+}
+
+@media (max-width: 576px) { 
+    #logo,#login{
+       display:none;
+    }
+
+    #search input{
+        width:100%;
+    }
+
+    #menu{
+        display:block;
+        cursor:pointer;
+        margin:3px;
+        padding:3px;
+        color:white;
+        font-size: larger;
+    }
+
+    /* close collapse when switching screen size */
+
+   
+ }
