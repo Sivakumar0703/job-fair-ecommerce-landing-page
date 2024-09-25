@@ -67,6 +67,7 @@
     height:5px;
     width:5px;
     z-index: 500;
+    cursor: pointer;
 }
 
 #back2top span{
