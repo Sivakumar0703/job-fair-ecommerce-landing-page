@@ -31,13 +31,17 @@ const Modal = () => {
       </div>
 
       <div style={{margin:"0 auto"}}>
-        <p><span>{`Price : ${modalData?.price}`}</span>  |  <span>{`Quantity : ${modalData?.quantity}`}</span></p>
-        <p><span>{`Brand : ${modalData?.brand}`}</span></p>
-        </div>
+        <p><span>{`Price : ₹ ${modalData?.price}`}</span>  |  <span>{`Quantity : ${modalData?.quantity}`}</span></p>
+      </div>
+    
+      <p style={{marginLeft:"10px"}}>Brand : <span className="badge text-bg-info"> {`${modalData?.brand}`}</span></p>
+      <div>
+
+      </div>
 
       <div className="modal-footer">
-        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" className="btn btn-primary">Add to Cart</button>
+        <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" className="btn btn-success">Add to Cart</button>
       </div>
     </div>
   </div>

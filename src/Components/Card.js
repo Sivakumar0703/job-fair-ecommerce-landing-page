@@ -2,6 +2,8 @@
 import { useContext } from 'react'
 import "../App.css"
 import { ecomContext } from '../DataContext'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 const Card = ({product}) => {
 
@@ -19,9 +21,9 @@ const Card = ({product}) => {
   <div className="card-body">
     <h4 style={{overflow:"hidden"}}>{product.name.substring(0,15)}</h4>
     <hr/>
-    <p className="card-text">{ product.description.substring(0,120) + "..."}</p>
-    <hr/>
-    <div style={{display:"flex",justifyContent:"space-between"}}><span>{`Price : ${product.price}`}</span>  <span>{`Quantity : ${product.quantity}`}</span></div>
+    <div className='card-foot'>
+      <span>{`Price : ₹ ${product.price}`}</span>  <button className='btn btn-primary'>Add To Cart <FontAwesomeIcon icon={faCartPlus} /></button>
+    </div>
   </div>
 </div>
 

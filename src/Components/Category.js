@@ -1,21 +1,35 @@
 import { useContext } from 'react'
 import "./category.css"
 import { ecomContext } from '../DataContext'
+import { useState } from 'react'
+
 
 const Category = () => {
 const{setCategory} = useContext(ecomContext);
+const[prevSelectedElement , setPrevSelectedElement] = useState("")
+const[flag , setFlag] = useState(false)
 
 function getCategory(e){
-  setCategory(e.target?.innerText)
+
+  if(flag){
+    prevSelectedElement.classList.remove('active-category');
+    setPrevSelectedElement("");
+    setFlag(false);
   }
+  setCategory(e.target?.innerText)
+  const div = e.target;
+  div.classList.add('active-category');
+  setPrevSelectedElement(e.target);
+  setFlag(true);
+}
 
   return (
     <div id="category-container">
-        <div className='categories' onClick={getCategory}><span>Home</span></div>
-        <div className='categories' onClick={getCategory}><span>Electronics</span></div>
-        <div className='categories' onClick={getCategory}><span>Men</span></div>
-        <div className='categories' onClick={getCategory}><span>Women</span></div>
-        <div className='categories' onClick={getCategory}><span>Kids</span></div>
+        <div className='categories' onClick={getCategory}>Home</div>
+        <div className='categories' onClick={getCategory}>Electronics</div>
+        <div className='categories' onClick={getCategory}>Men</div>
+        <div className='categories' onClick={getCategory}>Women</div>
+        <div className='categories' onClick={getCategory}>Kids</div>
     </div>
   )
 }

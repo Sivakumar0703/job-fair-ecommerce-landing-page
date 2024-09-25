@@ -37,7 +37,8 @@
 
 .collapse{
     padding: 10px;
-    background-color: chartreuse;
+    background-color: black;
+    color:white;
 }
 
 @media (max-width: 576px) { 
@@ -57,8 +58,5 @@
         color:white;
         font-size: larger;
     }
-
-    /* close collapse when switching screen size */
-
    
  }

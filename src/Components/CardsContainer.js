@@ -1,11 +1,15 @@
-import { useContext } from 'react'
+import { useContext , useState } from 'react'
 import Card from './Card'
 import "../App.css"
 import { ecomContext } from '../DataContext'
 import Loader from './Loader'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleUp  } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from 'react'
 
 const CardsContainer = () => {
     const {products,search,category,isLoading} = useContext(ecomContext);
+    const[flag , setFlag] = useState(false);
 
     function filterProducts(){
       const filteredProducts = products?.filter((product) => {
@@ -13,7 +17,6 @@ const CardsContainer = () => {
             return product
           }
       })
-      // console.log(filteredProducts)
       return filteredProducts
     }
 
@@ -30,18 +33,34 @@ const CardsContainer = () => {
             return ele
           }
         })
-        // console.log(categorizedWithSearch)
         return categorizedWithSearch
 
       } else {
         // only categorized
-        // console.log(productsList)
         return productsList
       }
     }
 
+    useEffect(() => {
+        const scrollFunction = () => {
+          setFlag(window.scrollY > 500)
+        }
+
+        window.addEventListener("scroll" , scrollFunction);
+
+        return () => {
+          window.removeEventListener("scroll" , scrollFunction)
+        }
+    } , [])
+
+
+    function goToTop(){
+      window.scrollTo({top:0 , behavior:"smooth"})   
+    }
+
 
   return (
+    <>
     <div id="cards-container">
 
         {
@@ -80,10 +99,14 @@ const CardsContainer = () => {
           </>
         }
 
+</div>
+          {
+            flag && <div id="back2top" onClick={goToTop}> 
+            <span><FontAwesomeIcon icon={faCircleUp} /></span>
+            </div> 
 
-
-    </div>
-
+          }
+    </>
 
   )
 }
