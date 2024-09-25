@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import "./header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faBars } from "@fortawesome/free-solid-svg-icons";
 import logo from "../asserts/ecom-logo.png";
+import { ecomContext } from "../DataContext";
 
 const Header = () => {
-  const [search, setSearch] = useState("");
+  const {search,setSearch} = useContext(ecomContext);
   return (
     <div>
       <div id="header">
@@ -34,7 +35,6 @@ const Header = () => {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
-          {/* <FontAwesomeIcon icon={faPaperPlane} /> */}
         </div>
 
         <div id="login">

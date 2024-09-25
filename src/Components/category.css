@@ -8,6 +8,17 @@
     overflow-y: scroll;
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+#category-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  #category-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 .categories{
     cursor: pointer;
     flex-grow: 1;

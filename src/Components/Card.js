@@ -1,24 +1,30 @@
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-// import { faCircleInfo } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+
+import { useContext } from 'react'
 import "../App.css"
+import { ecomContext } from '../DataContext'
 
-const Card = () => {
+const Card = ({product}) => {
+
+  const {setModalData} = useContext(ecomContext);
+
+  function handleClick(prdt){
+    setModalData(prdt)
+  }
+
   return (
-    <div className="card"  type="button" data-bs-toggle="modal" data-bs-target="#productModal">
-    {/* <div className="card" style={{width: "18rem"}}> */}
-  <img src="https://images8.alphacoders.com/451/451001.jpg" class="card-img-top" alt="mobile" />
-  {/* <span><FontAwesomeIcon icon={faCircleInfo} /></span> */}
+    <div className="card" onClick={() => handleClick(product)}  type="button" data-bs-toggle="modal" data-bs-target="#productModal">
+      <div className='card-img-container'>
+      <img src={product.image} class="card-img-top" alt={product.name} />
+      </div>
   <div className="card-body">
-    <h3>Mobile phone</h3>
+    <h4 style={{overflow:"hidden"}}>{product.name.substring(0,15)}</h4>
     <hr/>
-    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p className="card-text">{ product.description.substring(0,120) + "..."}</p>
     <hr/>
-    <div style={{display:"flex",justifyContent:"space-between"}}><span>price : 250 </span>  <span>qty: 5</span></div>
-
-
+    <div style={{display:"flex",justifyContent:"space-between"}}><span>{`Price : ${product.price}`}</span>  <span>{`Quantity : ${product.quantity}`}</span></div>
   </div>
 </div>
+
   )
 }
 

@@ -45,12 +45,23 @@
 }
 
 #cards-container{
+    min-height: 400px;
     display: grid;
     grid-template-columns: repeat(auto-fit , minmax(18rem,1fr));
-    grid-template-rows: repeat(auto-fit,400px);
+    grid-template-rows: repeat(auto-fit,auto);
     gap:20px;
     justify-items: center;
     margin: 10px 0;
+}
+
+.card-img-container{
+    height:200px;
+}
+
+.card-img-container img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
 }
 
 @media (max-width: 576px) { 

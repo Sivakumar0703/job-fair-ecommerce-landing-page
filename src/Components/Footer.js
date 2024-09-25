@@ -29,12 +29,6 @@ const Footer = () => {
 
     </div>
 
-    {/* <hr/>
-
-    <div id="footer-address">
-
-    </div> */}
-
     </div>
   )
 }

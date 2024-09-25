@@ -1,48 +1,38 @@
-import React from 'react'
 import "./modal.css"
+import { ecomContext } from '../DataContext'
+import { useContext } from 'react'
 
 const Modal = () => {
+  const {modalData} = useContext(ecomContext)
   return (
     <div>
-    {/* Button trigger modal  */}
-{/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> */}
 
 {/* Modal  */}
 <div className="modal fade" id="productModal" tabIndex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
-        <h1 className="modal-title fs-5" id="productModalLabel">Modal title</h1>
+        <h1 className="modal-title fs-5" id="productModalLabel">{modalData?.name}</h1>
         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
       <div className="modal-body">
         {/* product image */}
         <div id="modal-product-img-container">
-            <img src="https://images8.alphacoders.com/451/451001.jpg" alt="product" />
+            <img src={modalData?.image} alt={modalData?.name} />
         </div>
 
         {/* product details */}
         <div id="modal-product-detail-container">
-            <h2>product title</h2>
-
-            <h4>description</h4>
-            <p>Some quick example text to build on the card title and make up the bulk of the card's content.
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-            </p>
-
+            <h4>Description</h4>
+            <p> {modalData?.description} </p>
             <hr/>
         </div>
       </div>
 
       <div style={{margin:"0 auto"}}>
-        <p><span>price : 560</span> <span>quantity : 5</span></p>
-        <p><span>Brand : some brand</span></p>
+        <p><span>{`Price : ${modalData?.price}`}</span>  |  <span>{`Quantity : ${modalData?.quantity}`}</span></p>
+        <p><span>{`Brand : ${modalData?.brand}`}</span></p>
         </div>
 
       <div className="modal-footer">

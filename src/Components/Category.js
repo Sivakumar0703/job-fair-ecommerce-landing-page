@@ -1,12 +1,14 @@
-import React ,{ useState } from 'react'
+import { useContext } from 'react'
 import "./category.css"
+import { ecomContext } from '../DataContext'
 
 const Category = () => {
-    const [category , setCategory] = useState("all")
-    function getCategory(e){
-        setCategory(e.target?.innerText)
-        console.log(e)
-    }
+const{setCategory} = useContext(ecomContext);
+
+function getCategory(e){
+  setCategory(e.target?.innerText)
+  }
+
   return (
     <div id="category-container">
         <div className='categories' onClick={getCategory}><span>Home</span></div>
